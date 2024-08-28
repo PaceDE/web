@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Regular_Expression</title>
+    <script>
+        function testRegEx() {
+            var no="374ab3"
+            var pattern = /^\d+$/;
+            var result = pattern.test(no);
+            alert("Pattern test: " + result);
+        } 
+    </script>
+</head>
+
+<body>
+    <p>Is 374ab3 a number?</p>
+    <button onclick="testRegEx()">Test The Regular Expression</button>
+</body>
+
+</html>

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Dipesh Shrestha JSON</title>
+   
+</head>
+
+<body>
+    <h1></h1>
+    <script>
+       
+            var person = {
+                "firstName": "Leo",
+                "lastName": "Messi",
+                "age": 37,
+                "address": {
+                    "street": "167 Mi",
+                    "city": "Miami",
+                    "state": "Florida"
+                }
+            };
+
+            var jsonStr = JSON.stringify(person);
+            document.write("<h2>JSON String</h2>");
+            document.write(jsonStr + "<br><br>");
+          
+            var jsonObj = JSON.parse(jsonStr);
+            document.write("<h2>JSON Object</h2>");
+            document.write("First Name: " + jsonObj.firstName + "<br>");
+            document.write("Last Name: " + jsonObj.lastName + "<br>");
+            document.write("Age: " + jsonObj.age + "<br>");
+            document.write("Address: " + jsonObj.address.street + ", " + jsonObj.address.city + ", " +
+                jsonObj.address.state + "<br>");
+        
+    </script>
+</body>
+
+</html>

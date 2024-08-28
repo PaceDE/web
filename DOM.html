@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+
+<body>
+
+    <p id="demo"></p>
+
+    <script>
+        var text, parser, xmlDoc;
+
+        text = "<bookstore>" +
+            "<book>" +
+            "<title>Everyday Italian</title>" +
+            "<author>Giada De Laurentiis</author>" +
+            "<year>2005</year>" +
+            "</book>" +
+            "<book>" +
+            "<title>Harry Potter</title>" +
+            "<author>J.K. Rowling</author>" +
+            "<year>1997</year>" +
+            "</book>" +
+            "<book>" +
+            "<title>Learning XML</title>" +
+            "<author>Erik T. Ray</author>" +
+            "<year>2003</year>" +
+            "</book>" +
+            "</bookstore>";
+
+        parser = new DOMParser();
+        xmlDoc = parser.parseFromString(text, "text/xml");
+
+        var books = xmlDoc.getElementsByTagName("book");
+        var output = "";
+
+        for (var i = 0; i < books.length; i++) {
+            var title = books[i].getElementsByTagName("title")[0].childNodes[0].nodeValue;
+            var author = books[i].getElementsByTagName("author")[0].childNodes[0].nodeValue;
+            var year = books[i].getElementsByTagName("year")[0].childNodes[0].nodeValue;
+
+            output += "<b>Title:</b> " + title + "<br>" +
+                "<b>Author:</b> " + author + "<br>" +
+                "<b>Year:</b> " + year + "<br><br>";
+        }
+
+        document.getElementById("demo").innerHTML = output;
+    </script>
+
+</body>
+
+</html>

@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE addressBook SYSTEM "04_iv.dtd">
+<addressBook>
+    <contact>
+        <name>Lionel Messi</name>
+        <phone>123-456-7890</phone>
+        <email>Messi@example.com</email>
+        <address>
+            <street>XYZ</street>
+            <city>Miami</city>
+            <state>Florida</state>
+            <zip>734000</zip>
+        </address>
+    </contact>
+    <contact>
+        <name>Pedri</name>
+        <phone>987-654-3210</phone>
+        <email>pedri@example.com</email>
+        <address>
+            <street>ABC</street>
+            <city>Houston</city>
+            <state>Texas</state>
+            <zip>82101</zip>
+        </address>
+    </contact>
+</addressBook>

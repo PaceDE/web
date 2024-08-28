@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <script>
+        var cookieString;
+        function createCookie() {
+            var nameInput = document.getElementById("uname").value;
+            if (nameInput === "") {
+                alert("Enter Any Name!");
+                return;
+            }
+
+            // Set the cookie directly
+            var now = new Date();
+            now.setMinutes(now.getMinutes() + 1);  // Set expiry to 1 minute from now
+            cookieString = "username=" + nameInput + "; expires=" + now.toUTCString() + "; path=/";
+            document.cookie = cookieString;
+
+            alert("Cookie is Created........");
+            alert("Value of Cookie : " + nameInput);
+            alert("Expiry Date is : " + now.toUTCString());
+
+           
+        }
+
+        function readCookie() {
+            
+        
+            var allCookies = document.cookie;
+            console.log("Cookies Read: " + allCookies); // Debugging information
+
+            var output = "All Cookies : " + allCookies + "<br>";
+
+            if (allCookies) {
+                var cookieArray = allCookies.split(';');
+                 for (var i = 0; i < cookieArray.length; i++) {
+                    var name = cookieArray[i].split('=')[0];
+                    var value = cookieArray[i].split('=')[1];
+                    output += "Key: " + name + " | Value: " + value + "<br>";
+                }
+            } else {
+                output += "No cookies found.";
+            }
+
+            document.getElementById("cookieOutput").innerHTML = output;
+        }
+    </script>
+</head>
+
+<body>
+    <form name="myform" action="">
+        Enter Any Name: <input type="text" name="uname" id="uname">
+        <input type="button" value="Set Cookie" onclick="createCookie();">
+        <input type="button" value="Get Cookie" onclick="readCookie();">
+    </form>
+    <div id="cookieOutput"></div>
+</body>
+
+</html>

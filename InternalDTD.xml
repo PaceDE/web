@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE addressBook [
+    <!ELEMENT addressBook (contact+)>
+    <!ELEMENT contact (name, phone, email, address)>
+    <!ELEMENT name (#PCDATA)>
+    <!ELEMENT phone (#PCDATA)>
+    <!ELEMENT email (#PCDATA)>
+    <!ELEMENT address (street, city, state, zip)>
+    <!ELEMENT street (#PCDATA)>
+    <!ELEMENT city (#PCDATA)>
+    <!ELEMENT state (#PCDATA)>
+    <!ELEMENT zip (#PCDATA)>
+]>
+<addressBook>
+    <contact>
+        <name>Lionel Messi</name>
+        <phone>123-456-7890</phone>
+        <email>Messi@example.com</email>
+        <address>
+            <street>XYZ</street>
+            <city>Miami</city>
+            <state>Florida</state>
+            <zip>734000</zip>
+        </address>
+    </contact>
+    <contact>
+        <name>Pedri</name>
+        <phone>987-654-3210</phone>
+        <email>janesmith@example.com</email>
+        <address>
+            <street>ABC</street>
+            <city>Houston</city>
+            <state>Texas</state>
+            <zip>82101</zip>
+        </address>
+    </contact>
+</addressBook>

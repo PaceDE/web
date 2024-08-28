@@ -1,0 +1,77 @@
+<?php include 'dbConnection.php'; ?>
+
+<?php
+// Fetching the record based on the ID passed as a GET parameter
+$id = $_GET['id'];
+$query = "SELECT * FROM tb_insertdata WHERE id='$id'";
+$data = mysqli_query($con, $query);
+$row = mysqli_fetch_array($data);
+
+if (isset($_POST['update'])) {
+    // Getting data from form inputs
+    $fname = $_POST['fname'];
+    $lname = $_POST['lname'];
+    $address = $_POST['address'];
+    $age = $_POST['age'];
+    $nationality = $_POST['nationality'];
+
+    // Update query
+    $updateQuery = "UPDATE tb_insertdata SET firstname='$fname', lastname='$lname', address='$address', age='$age', nationality='$nationality' WHERE id='$id'";
+    $updateData = mysqli_query($con, $updateQuery);
+
+    if ($updateData) {
+        echo "<script>
+                alert('Data has been Updated Successfully');
+                window.open('http://localhost:8080/phpCrudOperation/view.php', '_self');
+              </script>";
+    } else {
+        echo "<script>
+                alert('Please Try Again!');
+              </script>";
+    }
+}
+?>
+
+<html>
+<head>
+    <title>Update Record</title>
+</head>
+<body>
+    <form method="post">
+        <table>
+            <tr>
+                <td>First Name</td>
+                <td><input type="text" name="fname" value="<?php echo $row['firstname']; ?>"></td>
+            </tr>
+            <tr>
+                <td>Last Name</td>
+                <td><input type="text" name="lname" value="<?php echo $row['lastname']; ?>"></td>
+            </tr>
+            <tr>
+                <td>Address</td>
+                <td><input type="text" name="address" value="<?php echo $row['address']; ?>"></td>
+            </tr>
+            <tr>
+                <td>Age</td>
+                <td><input type="text" name="age" value="<?php echo $row['age']; ?>"></td>
+            </tr>
+            <tr>
+                <td>Nationality</td>
+                <td>
+                    <select name="nationality">
+                        <option value="">Select nationality</option>
+                        <option value="Nepal" <?php if($row['nationality'] == 'Nepal') echo 'selected'; ?>>Nepal</option>
+                        <option value="India" <?php if($row['nationality'] == 'India') echo 'selected'; ?>>India</option>
+                        <option value="US" <?php if($row['nationality'] == 'US') echo 'selected'; ?>>US</option>
+                        <option value="UK" <?php if($row['nationality'] == 'UK') echo 'selected'; ?>>UK</option>
+                        <option value="Others" <?php if($row['nationality'] == 'Others') echo 'selected'; ?>>Others</option>
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <td colspan="2"><input type="submit" name="update" value="Update"></td>
+            </tr>
+        </table>
+    </form>
+</body>
+</html>
